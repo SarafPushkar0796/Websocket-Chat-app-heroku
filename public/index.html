@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Favicon -->
+	<link rel="icon" href="../chat.png" sizes="16x16" type="image/png">
+
+	<!-- Nunito font -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+
+	<title>RealTime Chat - Websocket</title>
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<!-- Socket JS file -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+	<!-- Semantic UI JS -->
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+	<!-- Semantic UI CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<!-- Alert on 'how to use app' -->
+	<div class="ui container">
+		<div class="ui positive message transition">
+		  <i class="close icon"></i>
+		  <div class="header">
+		    This is a simple chat app built with Websockets.<br/>Open this app in a new tab or maybe on a new phone to have a <b>Group chat.</b>
+		  </div>
+		  <p>Enter your name in the <b>username input</b> to start messaging.</p>
+		</div>
+	</div>
+
+	<div class="ui container">
+		<div id="user-chat">
+			<div id="chat-window">
+				<div id="output"></div>
+				<div id="feedback"></div>
+			</div>
+			<input id="username" type="text" placeholder="Username"/>
+			<input id="message" type="text" placeholder="Message...">
+			<button id="send">Send</button>
+		</div>
+		<button id="help" class="ui right labeled icon button"><i class="right exclamation icon"></i>Help</button>
+	</div><hr><br/>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.message .close').on('click', function() {
+				$(this).closest('.message').transition('fade');
+			});
+
+			$('#help').on('click', function() {
+				$('.message').modal('show');
+			});
+		});
+	</script>
+
+	<script src="chat.js"></script>
+	<center>
+		<p>Developed by <a href="http://personal-site-v2.000webhostapp.com/" title="Personal site link">Pushkar Saraf</a></p>
+	</center>
+</body>
+</html>
